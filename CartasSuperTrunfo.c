@@ -7,13 +7,6 @@
 int main() {
   // Área para definição das variáveis para armazenar as propriedades das cidades
 
-  char estado1 = "a", 
-       estado2 = "a", 
-       codigo1[3]= "a", 
-       codigo2[3] = "a", 
-       cidade1[50] = "a", 
-       cidade2[50] = "a";
-
   int  populacao1 = 0, 
        populacao2 = 0, 
        pturisticos1 = 0, 
@@ -22,9 +15,21 @@ int main() {
   float area1 = 0, 
         area2 = 0, 
         pib1 = 0, 
-        pib2 = 0;
+        pib2 = 0,
+        densidade1 = 0,
+        densidade2 = 0,
+        pibpercapta1 = 0,
+        pibpercapta2 = 0;
 
-  // Área para entrada de dados
+  char estado1, 
+       estado2, 
+       codigo1[4], 
+       codigo2[4], 
+       cidade1[50], 
+       cidade2[50];
+
+
+          // ÁREA PARA ENTRADA DE DADOS
 
   printf("* Digite os dados da Carta 1: \n");
   printf("Estado: ");
@@ -41,11 +46,14 @@ int main() {
   scanf("%f", &pib1);                                            //Armazena o valor digitado na variável "pib1" da Carta 1
   printf("Números de Pontos Turísticos: ");
   scanf("%d", &pturisticos1);                                    //Armazena o valor digitado na variável "pturisticos1" da Carta 1
+
   printf("\n");                                                  //Espaço para formatação da apresentação dos dados
 
   printf("* Digite os dados da Carta 2: \n");
   printf("Estado: ");
-  scanf(" %c", &estado2);                                        //Armazena o valor digitado na variável "codigo2" da Carta 2
+  scanf(" %c", &estado2);                                        //Armazena o valor digitado na variável "estado2" da Carta 2
+  printf("Código: ");
+  scanf("%s", codigo2);                                          //Armazena o valor digitado na variável "codigo2" da Carta 2
   printf("Nome da Cidade: ");
   scanf("%s", cidade2);                                          //Armazena o valor digitado na variável "cidade2" da Carta 2
   printf("População: ");                                         
@@ -57,29 +65,44 @@ int main() {
   printf("Números de Pontos Turísticos: ");
   scanf("%d", &pturisticos2);                                    //Armazena o valor digitado na variável "pturisticos2" da Carta 2
   
-  // Área para exibição dos dados da cidade
+
+          // ÁREA PARA A EXIBIÇÃO DE DADOS DAS CIDADES
   
   printf("\n");                                                  //Espaço para formatação da apresentação dos dados
+
   printf("   * Carta 1\n");                                      
-  printf("Estado: %c\n", estado1);                               //Mostra o valor do do item "Estado" da Carta 1
-  printf("Código: %s\n", codigo1);                               //Mostra o valor do do item "Código" da Carta 1
-  printf("Nome da Cidade: %s\n", cidade1);                       //Mostra o valor do do item "Cidade" da Carta 1
-  printf("População: %d\n", populacao1);                         //Mostra o valor do do item "População" da Carta 1
-  printf("Área: %.2f\n", area1);                                 //Mostra o valor do do item "Área" da Carta 1
-  printf("Pib: %.2f\n", pib1);                                   //Mostra o valor do do item "PIB" da Carta 1
-  printf("Números de Pontos Turísicos: %d", pturisticos1);       //Mostra o valor do do item "Nº de Pontos Turísticos" da Carta 1
+  printf("Estado: %c\n", estado1);                               //Mostra o valor do item "Estado" da Carta 1
+  printf("Código: %s\n", codigo1);                               //Mostra o valor do item "Código" da Carta 1
+  printf("Nome da Cidade: %s\n", cidade1);                       //Mostra o valor do item "Cidade" da Carta 1
+  printf("População: %d\n", populacao1);                         //Mostra o valor do item "População" da Carta 1
+  printf("Área: %.2f\n", area1);                                 //Mostra o valor do item "Área" da Carta 1
+  printf("Pib: %.2f\n", pib1);                                   //Mostra o valor do item "PIB" da Carta 1
+  printf("Números de Pontos Turísicos: %d\n", pturisticos1);     //Mostra o valor do item "Nº de Pontos Turísticos" da Carta 1
+
+  densidade1 = (float)populacao1 / area1;                        //Cálculo da densidade populacional da Carta 1
+  printf("Densidade Populacional: %.2f\n", densidade1);          //Mostra o valor do item "Densidade Populacional" da Carta 1
+
+  pibpercapta1 = pib1 / (float)populacao1;                       //CAlcula o Pib per Capta da Carta 1
+  printf("Pib per Capta: %.2f\n", pibpercapta1);                 //Mostra o valot do item "Pib per Capta" da Carta 1
+  
+  printf("\n");                                                  //Espaço para formatação da apresentação dos dados
   printf("\n");                                                  //Espaço para formatação da apresentação dos dados
 
-  printf("\n");                                                  //Espaço para formatação da apresentação dos dados
   printf("   * Carta 2\n");                                      
-  printf("Estado: %c\n", estado2);                               //Mostra o valor do do item "Estado" da Carta 2
-  printf("Código: %s\n", codigo2);                               //Mostra o valor do do item "Código" da Carta 2
-  printf("Nome da Cidade: %s\n", cidade2);                       //Mostra o valor do do item "Cidade" da Carta 2
-  printf("População: %d\n", populacao2);                         //Mostra o valor do do item "População" da Carta 2
-  printf("Área: %.2f\n", area2);                                 //Mostra o valor do do item "Área" da Carta 2
-  printf("Pib: %.2f\n", pib2);                                   //Mostra o valor do do item "PIB" da Carta 2
-  printf("Números de Pontos Turísicos: %d", pturisticos2);       //Mostra o valor do do item "Nº de Pontos Turísticos" da Carta 2
+  printf("Estado: %c\n", estado2);                               //Mostra o valor do item "Estado" da Carta 2
+  printf("Código: %s\n", codigo2);                               //Mostra o valor do item "Código" da Carta 2
+  printf("Nome da Cidade: %s\n", cidade2);                       //Mostra o valor do item "Cidade" da Carta 2
+  printf("População: %d\n", populacao2);                         //Mostra o valor do item "População" da Carta 2
+  printf("Área: %.2f\n", area2);                                 //Mostra o valor do item "Área" da Carta 2
+  printf("Pib: %.2f\n", pib2);                                   //Mostra o valor do item "PIB" da Carta 2
+  printf("Números de Pontos Turísicos: %d", pturisticos2);       //Mostra o valor do item "Nº de Pontos Turísticos" da Carta 2
   printf("\n");     
+
+  densidade2 = (float)populacao2 / area2;                        //Cálculo da densidade populacional da Carta 2
+  printf("Densidade Populacional: %.2f\n", densidade2);          //Mostra o valor do item "Densidade Populacional" da Carta 2
+
+  pibpercapta2 = pib2 / (float)populacao2;                       //CAlcula o Pib per Capta da Carta 2
+  printf("Pib per Capta: %.2f\n", pibpercapta2);                 //Mostra o valot do item "Pib per Capta" da Carta 2
 
 return 0;
 } 
